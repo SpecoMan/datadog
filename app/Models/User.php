@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
+use App\Models\Roles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'role_id', 'password',
+        'name', 'email', 'roles_id', 'password',
     ];
 
     /**
@@ -26,4 +27,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function isUser(){
+        if(Roles::where('id', $this->roles_id)->first()->name == 'user')
+            return true;
+        else
+            return false;
+    }
+
+    public function isAdmin(){
+        if(Roles::where('id', $this->roles_id)->first()->name == 'admin')
+            return true;
+        else
+            return false;
+    }
 }
