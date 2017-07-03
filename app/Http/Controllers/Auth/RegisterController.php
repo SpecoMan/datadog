@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Roles;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -62,9 +64,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $record = Roles::where('name','user')->first();
+
+        if(!$record) {
+            Artisan::call('db:seed');
+            $record = Roles::where('name','user')->first();
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'roles_id' => $record->id,
             'password' => bcrypt($data['password']),
         ]);
     }
