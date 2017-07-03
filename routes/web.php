@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'vehicles', 'middleware' => 'admin'], function(){
+    Route::get('/', ['as' => 'vehicles', 'uses' => 'VehiclesController@index']);
+});
