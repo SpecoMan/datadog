@@ -21,4 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'vehicles', 'middleware' => 'admin'], function(){
     Route::get('/', ['as' => 'vehicles', 'uses' => 'VehiclesController@index']);
+    Route::post('create', ['as' => 'vehicles.create', 'uses' => 'VehiclesController@create']);
+    Route::post('edit', ['as' => 'vehicles.edit', 'uses' => 'VehiclesController@edit']);
+    Route::post('delete', ['as' => 'vehicles.delete', 'uses' => 'VehiclesController@delete']);
 });
