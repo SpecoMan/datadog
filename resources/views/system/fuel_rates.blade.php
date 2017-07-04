@@ -15,11 +15,11 @@
                             @if(isset($vehicle['0']))
                                 {!! Form::open(['url' => route('fuel_rates.edit')]) !!}
                                 <input type="hidden" name="id" value="{{$vehicle['0']['id']}}">
-                                <input type="text" name="idle_consumption" value="{{ $vehicle['0']['idle'] }}" placeholder="{{ $vehicle['0']['idle'] }}">
-                                <input type="text" name="going_consumption" value="{{ $vehicle['0']['going'] }}" placeholder="{{ $vehicle['0']['going'] }}">
-                                <input type="text" name="unloading_consumption" value="{{ $vehicle['0']['unloading'] }}" placeholder="{{ $vehicle['0']['unloading'] }}">
+                                <input type="text" name="idle_consumption" value="{{ $vehicle['0']['idle'] }}" placeholder="{{ $vehicle['0']['idle'] }}" maxlength="4" size="4">
+                                <input type="text" name="going_consumption" value="{{ $vehicle['0']['going'] }}" placeholder="{{ $vehicle['0']['going'] }}" maxlength="4" size="4">
+                                <input type="text" name="unloading_consumption" value="{{ $vehicle['0']['unloading'] }}" placeholder="{{ $vehicle['0']['unloading'] }}" maxlength="4" size="4">
                                 <button type="submit" class="btn btn-success btn-xs">
-                                    {{ trans('transport/vehicles.buttons.edit') }}
+                                    {{ trans('system.edit') }}
                                 </button>
                                 {!! Form::close() !!}
                             @else
@@ -29,7 +29,7 @@
                                 <input type="text" name="going_consumption" placeholder="{{ trans('transport/fuel_rates.going') }}">
                                 <input type="text" name="unloading_consumption" placeholder="{{ trans('transport/fuel_rates.unloading') }}">
                                 <button type="submit" class="btn btn-success btn-xs">
-                                    {{ trans('transport/vehicles.buttons.create') }}
+                                    {{ trans('system.create') }}
                                 </button>
                                 {!! Form::close() !!}
                             @endif

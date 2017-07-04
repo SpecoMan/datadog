@@ -32,3 +32,8 @@ Route::group(['prefix' => 'fuel_rates', 'middleware' => 'admin'], function(){
     Route::post('edit', ['as' => 'fuel_rates.edit', 'uses' => 'FuelRatesController@edit']);
 
 });
+
+Route::group(['prefix' => 'travel_data', 'middleware' => 'web'], function() {
+    Route::get('/', ['as' => 'travel_data', 'uses' => 'TravelDataController@index']);
+    Route::post('create', ['as' => 'travel_data.create', 'uses' => 'TravelDataController@create']);
+});

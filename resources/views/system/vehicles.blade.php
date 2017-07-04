@@ -8,9 +8,9 @@
         {!! Form::open(['url' => route('vehicles.create')]) !!}
         <div class="ve-table-create"
              style="margin:10px auto; width: 50%;">
-            <input type="text" name="vehicle" placeholder="{{ trans('transport/vehicles.enter.name') }}" required>
+            <input type="text" name="vehicle" placeholder="{{ trans('system.vehicles.enter.name') }}" required>
             <button type="submit" class="btn btn-success btn-xs">
-                {{ trans('transport/vehicles.buttons.save') }}
+                {{ trans('system.create') }}
             </button>
         </div>
         {!! Form::close() !!}
@@ -25,7 +25,7 @@
                         {!! Form::open(['url' => route('vehicles.edit')]) !!}
                         <button onclick="edit('{{$record['value']}}', '{{$record['id']}}')"
                                 class="btn btn-primary btn-xs">
-                            {{ trans('transport/vehicles.buttons.edit') }}
+                            {{ trans('system.edit') }}
                         </button>
                         <input type="hidden" name="id" value="{{$record['id']}}">
                         <input type="hidden" name="vehicle" id="vehicleEdit{{$record['id']}}" value="">
@@ -33,7 +33,7 @@
 
                         {!! Form::open(['url' => route('vehicles.delete')]) !!}
                         <button class="btn btn-danger btn-xs">
-                            {{ trans('transport/vehicles.buttons.delete') }}
+                            {{ trans('system.delete') }}
                         </button>
                         <input type="hidden" name="id" value="{{$record['id']}}">
                         {!! Form::close() !!}
