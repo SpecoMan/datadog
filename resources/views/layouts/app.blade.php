@@ -12,6 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -94,5 +102,28 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.time').datetimepicker({
+            format: 'HH:mm:ss'
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datetimepicker10').datetimepicker({
+            viewMode: 'months',
+            format: 'MM'
+        });
+    });
+</script>
+
+<!-- Scripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 </body>
 </html>
