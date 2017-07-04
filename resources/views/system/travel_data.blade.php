@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if(isset($error))
+        <div class="alert alert-danger">
+            <strong>Error</strong> {{trans('system.bad_input')}}
+        </div>
+    @elseif(isset($success))
+        <div class="alert alert-success">
+            <strong>Success!</strong> {{trans('system.record_placed')}}
+        </div>
+    @endif
     <div class="ve-table"
          style="margin:0 auto; width: 100%; border: 1px black solid; border-radius: 5px; padding: 5px">
         <table>
@@ -57,30 +67,4 @@
             </tbody>
         </table>
     </div>
-
-    {{--<script>--}}
-    {{--function count(idle,going,unloading) {--}}
-
-    {{--var date = document.getElementById('date').value;--}}
-    {{--var timeLeftTerminal = document.getElementById('time_left_terminal').value;--}}
-    {{--var speedometerStart = document.getElementById('speedometer_start').value;--}}
-    {{--var timeEnterClient = document.getElementById('time_enter_client').value;--}}
-    {{--var unloadTime = document.getElementById('unload_time').value;--}}
-    {{--var timeLeftClient = document.getElementById('time_left_client').value;--}}
-    {{--var timeEnterTerminal = document.getElementById('time_enter_terminal').value;--}}
-    {{--var speedometerEnd = document.getElementById('speedometer_end').value;--}}
-
-    {{--var timestampTLT = Date.parse(date + " " + timeLeftTerminal);--}}
-    {{--var timestampTEC = Date.parse(date + " " + timeEnterClient);--}}
-
-    {{--var travelConsumption;--}}
-    {{--var travelToClientConsumption = (((timestampTEC - timestampTLT)/60000)/ 60) * going;--}}
-    {{--alert(going + " " + travelToClientConsumption);--}}
-    {{--if(speedometerEnd - speedometerStart > 0)--}}
-    {{--Document.getElementById('destinationLength').value = speedometerEnd - speedometerStart;--}}
-    {{--else--}}
-    {{--Document.getElementById('destinationLength').value = 0;--}}
-
-    {{--}--}}
-    {{--</script>--}}
 @endsection
