@@ -23,8 +23,9 @@ class FuelRates extends Model
     protected $hidden = [
     ];
 
-    public function vehicle(){
+    public function vehicle()
+    {
         $connectionsTable = (new VehiclesFuelRatesConnections())->getTable();
-       return $this->belongsToMany(Vehicles::class, $connectionsTable, 'fuel_rate_id','vehicle_id');
+        return $this->belongsToMany(Vehicles::class, $connectionsTable, 'fuel_rate_id', 'vehicle_id');
     }
 }

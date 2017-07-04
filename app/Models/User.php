@@ -28,15 +28,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function isUser(){
-        if(Roles::where('id', $this->roles_id)->first()->name == 'user')
+    public function isUser()
+    {
+        if (Roles::where('id', $this->roles_id)->first()->name == 'user')
             return true;
         else
             return false;
     }
 
-    public function isAdmin(){
-        if(Roles::where('id', $this->roles_id)->first()->name == 'admin')
+    public function isAdmin()
+    {
+        if (Roles::where('id', $this->roles_id)->first()->name == 'admin')
             return true;
         else
             return false;
