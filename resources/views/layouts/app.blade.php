@@ -38,7 +38,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    TravelingSystem
                 </a>
             </div>
 
@@ -71,7 +71,8 @@
                         <li><a href="{{ route('register') }}">Register</a></li>
                     @else
                         <li>
-                            <a href="#">
+                            <a href="#" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
