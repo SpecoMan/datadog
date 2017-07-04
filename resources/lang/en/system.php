@@ -21,6 +21,9 @@ return [
     'distance' => 'Distance',
     'fuel' => 'Fuel',
     'nr' => '#',
+    'fuel_rates.idle' => 'Idle',
+    'fuel_rates.going' => 'Going',
+    'fuel_rates.unloading' => 'Unloading',
 
     'users_travel_data' => 'Users travel data',
 
