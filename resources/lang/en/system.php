@@ -16,6 +16,8 @@ return [
     'unload_time' => 'Unloading time',
     'time_left_client' => 'Time left client',
     'time_enter_terminal' => 'Time when arrived to terminal',
-    'travel_data' => 'Travel data'
+    'travel_data' => 'Travel data',
+
+    'users_travel_data' => 'Users travel data',
 
 ];
