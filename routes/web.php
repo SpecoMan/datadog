@@ -25,3 +25,10 @@ Route::group(['prefix' => 'vehicles', 'middleware' => 'admin'], function(){
     Route::post('edit', ['as' => 'vehicles.edit', 'uses' => 'VehiclesController@edit']);
     Route::post('delete', ['as' => 'vehicles.delete', 'uses' => 'VehiclesController@delete']);
 });
+
+Route::group(['prefix' => 'fuel_rates', 'middleware' => 'admin'], function(){
+    Route::get('/', ['as' => 'fuel_rates', 'uses' => 'FuelRatesController@index']);
+    Route::post('create', ['as' => 'fuel_rates.create', 'uses' => 'FuelRatesController@create']);
+    Route::post('edit', ['as' => 'fuel_rates.edit', 'uses' => 'FuelRatesController@edit']);
+
+});
