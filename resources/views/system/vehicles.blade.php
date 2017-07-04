@@ -2,49 +2,48 @@
 
 @section('content')
 
-
-    <div class="ve-table"
-         style="margin:0 auto; width: 35%; border: 1px black solid; border-radius: 5px; padding: 5px">
-        {!! Form::open(['url' => route('vehicles.create')]) !!}
-        <div class="ve-table-create"
-             style="margin:10px auto; width: 50%;">
-            <input type="text" name="vehicle" placeholder="{{ trans('system.vehicles.enter.name') }}" required>
+    <div class="row" style="margin:0 auto; width: 20%; border: 1px black solid; border-radius: 5px; padding: 5px">
+        <div class="row">
+            {!! Form::open(['url' => route('vehicles.create')]) !!}
+            <div class="col-sm-5">
+                <input type="text" name="vehicle" placeholder="{{ trans('system.vehicles.enter.name') }}" required>
+            </div>
+            <div class="col-sm-3">
+            </div>
             <button type="submit" class="btn btn-success btn-xs">
                 {{ trans('system.create') }}
             </button>
         </div>
         {!! Form::close() !!}
-        <table>
-            <tbody>
+
+        <div class="row">
             @foreach($records as $record)
-                <tr>
-                    <td>
-                        {{$record['value']}}
-                    </td>
-                    <td>
-                        {!! Form::open(['url' => route('vehicles.edit')]) !!}
-                        <button onclick="edit('{{$record['value']}}', '{{$record['id']}}')"
-                                class="btn btn-primary btn-xs">
-                            {{ trans('system.edit') }}
-                        </button>
-                        <input type="hidden" name="id" value="{{$record['id']}}">
-                        <input type="hidden" name="vehicle" id="vehicleEdit{{$record['id']}}" value="">
-                        {!! Form::close() !!}
+                <div class="col-sm-4">
+                    {{$record['value']}}
+                </div>
+                <div class="col-sm-4">
+                    {!! Form::open(['url' => route('vehicles.edit')]) !!}
+                    <button onclick="edit('{{$record['value']}}', '{{$record['id']}}')"
+                            class="btn btn-primary btn-xs">
+                        {{ trans('system.edit') }}
+                    </button>
+                    <input type="hidden" name="id" value="{{$record['id']}}">
+                    <input type="hidden" name="vehicle" id="vehicleEdit{{$record['id']}}" value="">
+                    {!! Form::close() !!}
+                </div>
+                <div class="col-sm-4">
+                    {!! Form::open(['url' => route('vehicles.delete')]) !!}
+                    <button class="btn btn-danger btn-xs">
+                        {{ trans('system.delete') }}
+                    </button>
+                    <input type="hidden" name="id" value="{{$record['id']}}">
+                    {!! Form::close() !!}
+                </div>
 
-                        {!! Form::open(['url' => route('vehicles.delete')]) !!}
-                        <button class="btn btn-danger btn-xs">
-                            {{ trans('system.delete') }}
-                        </button>
-                        <input type="hidden" name="id" value="{{$record['id']}}">
-                        {!! Form::close() !!}
-
-                    </td>
-
-                </tr>
 
             @endforeach
-            </tbody>
-        </table>
+        </div>
+
     </div>
 
     <script>
