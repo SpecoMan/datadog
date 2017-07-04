@@ -35,6 +35,8 @@ Route::group(['prefix' => 'fuel_rates', 'middleware' => 'admin'], function(){
 
 Route::group(['prefix' => 'users_travel_data', 'middleware' => 'admin'], function() {
     Route::get('/', ['as' => 'users_travel_data', 'uses' => 'UserTravelDataController@index']);
+    Route::post('show', ['as' => 'users_travel_data.show', 'uses' => 'UserTravelDataController@show']);
+
 });
 
 Route::group(['prefix' => 'travel_data', 'middleware' => 'web'], function() {
