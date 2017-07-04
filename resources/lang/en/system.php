@@ -17,6 +17,9 @@ return [
     'time_left_client' => 'Time left client',
     'time_enter_terminal' => 'Time when arrived to terminal',
     'travel_data' => 'Travel data',
+    'distance' => 'Distance',
+    'fuel' => 'Fuel',
+    'nr' => '#',
 
     'users_travel_data' => 'Users travel data',
 
