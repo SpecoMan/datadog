@@ -26,5 +26,8 @@ return [
     'fuel_rates.unloading' => 'Unloading',
 
     'users_travel_data' => 'Users travel data',
+    'bad_input' => 'Bad input',
+    'record_placed' => 'Record placed',
+
 
 ];
