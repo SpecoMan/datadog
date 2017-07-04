@@ -45,6 +45,9 @@
                             <li>
                                 <a href="{{route('fuel_rates')}}">{{trans('system.fuel_rates')}}</a>
                             </li>
+                            <li>
+                                <a href="{{route('users_travel_data')}}">{{trans('system.users_travel_data')}}</a>
+                            </li>
                         @endif
                         <li>
                             <a href="{{route('travel_data')}}">{{trans('system.travel_data')}}</a>
