@@ -7,6 +7,7 @@ return [
     'fuel_rates' => 'Fuel rates',
     'create' => 'Create',
     'edit' => 'Edit',
+    'delete' => 'Delete',
     'date' => 'Date',
     'destination' => 'Destination route',
     'speedometer_start' => 'Speedometer at beginning',
