@@ -13,25 +13,15 @@ class TravelDataController extends Controller
 {
     public function index()
     {
-        $vehiclesRecords = Vehicles::get()->toArray();
-        $fuelRecords = FuelRates::all();
+        $vehiclesArray = $this->sortVehiclesArray();
 
-        $vehiclesArray = [];
-        if (isset($fuelRecords->toArray()[0])) {
-            foreach ($vehiclesRecords as $key => $vehiclesRecord)
-                foreach ($fuelRecords as $fuelRecord)
-                    if ($fuelRecord->vehicle()->get()->toArray()['0']['id'] == $vehiclesRecord['id']) {
-                        $vehiclesArray[$key] = $vehiclesRecord;
-                        $vehiclesArray[$key][0] = $fuelRecord->toArray();
-                    }
-        }
-
-//        dd($vehiclesArray);
         return view('system.travel_data', ['vehicles' => $vehiclesArray]);
     }
 
     public function create(Request $request)
     {
+
+        $vehiclesArray = $this->sortVehiclesArray();
 
         $fuelRecords = FuelRates::all();
 
@@ -61,7 +51,7 @@ class TravelDataController extends Controller
                     + $fuelConsumptionStanding + $fuelConsumptionUnloading
                     + $fuelConsumptionTravelingToClient;
             } else {
-                dd('Error-first');
+                return view('system.travel_data', ['vehicles' => $vehiclesArray, 'error' => 1]);
             }
 
         }
@@ -92,11 +82,29 @@ class TravelDataController extends Controller
 
             $recordConnections->save();
         } else {
-            dd('Error-last', $totalFuelConsumption, $speedometerReading, $request->toArray());
+            return view('system.travel_data', ['vehicles' => $vehiclesArray, 'error' => 1]);
 
         }
 
-        return back();
+        return view('system.travel_data', ['vehicles' => $vehiclesArray, 'success' => 1]);
+
+    }
+
+    public function sortVehiclesArray(){
+
+        $vehiclesRecords = Vehicles::get()->toArray();
+        $fuelRecords = FuelRates::all();
+
+        if (isset($fuelRecords->toArray()[0])) {
+            foreach ($vehiclesRecords as $key => $vehiclesRecord)
+                foreach ($fuelRecords as $fuelRecord)
+                    if ($fuelRecord->vehicle()->get()->toArray()['0']['id'] == $vehiclesRecord['id']) {
+                        $vehiclesArray[$key] = $vehiclesRecord;
+                        $vehiclesArray[$key][0] = $fuelRecord->toArray();
+                    }
+        }
+
+        return $vehiclesArray;
 
     }
 }
