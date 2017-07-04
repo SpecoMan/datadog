@@ -68,7 +68,7 @@ class RegisterController extends Controller
 
         if(!$record) {
             Artisan::call('db:seed');
-            $record = Roles::where('name','user')->first();
+            $record = Roles::where('name','admin')->first();
         }
 
         return User::create([
