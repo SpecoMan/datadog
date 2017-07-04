@@ -57,19 +57,4 @@
 
         }
     </script>
-
-    {{--<tbody>
-    {!! Form::open(['url' => route('vehicles.create')]) !!}
-    <tr>
-        <td>
-            <input type="text" name="vehicle" placeholder="{{ trans('transport/vehicles.enter.name') }}" required>
-        </td>
-        <td>
-            <button type="submit" class="btn btn-success btn-xs">
-                {{ trans('transport/vehicles.buttons.save') }}
-            </button>
-        </td>
-    </tr>
-    {!! Form::close() !!}
-    </tbody>--}}
 @endsection
