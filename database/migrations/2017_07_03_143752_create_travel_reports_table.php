@@ -18,13 +18,13 @@ class CreateTravelReportsTable extends Migration {
 			$table->date('date');
 			$table->text('route', 65535);
 			$table->time('terminal_left');
-			$table->time('terminal_arived');
+			$table->time('terminal_arrived');
 			$table->integer('speedometer_readings_before')->nullable();
-			$table->integer('speedometer_redings_after');
+			$table->integer('speedometer_readings_after');
 			$table->time('client_arrived');
 			$table->time('client_left');
 			$table->integer('unloading_time');
-			$table->integer('distance')->nullable()->unique('distance_UNIQUE');
+			$table->integer('distance')->nullable();
 			$table->integer('fuel');
 			$table->timestamps();
 			$table->softDeletes();
